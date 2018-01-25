@@ -96,16 +96,16 @@ m   * @return         boolean which is true if the parameter is a leap year
       long [] Days = new long [12];
 
       Days [0] = 31;
-	  Days [1] = 28;
-	  Days [2] = 31;
-	  Days [3] = 30;
-	  Days [4] = 31;
-	  Days [5] = 30;
-	  Days [6] = 31;
-	  Days [7] = 31;
-	  Days [8] = 30;
-	  Days [9] = 31;
-	  Days [10] = 30;
+      Days [1] = 28;
+      Days [2] = 31;
+      Days [3] = 30;
+      Days [4] = 31;
+      Days [5] = 30;
+      Days [6] = 31;
+      Days [7] = 31;
+      Days [8] = 30;
+      Days [9] = 31;
+      Days [10] = 30;
       Days [11] = 31;
 
       if (decrementedMonth == 1 && isLeapYear(year) == true)
@@ -145,9 +145,8 @@ m   * @return         boolean which is true if the parameter is a leap year
    */
    public static int compareDate( long month1, long day1, long year1, long month2, long day2, long year2 ) {
 
-
-   long date1Num= daysInDate(month1, day1, year1);
-   long date2Num= daysInDate(month2, day2, year2);
+        long date1Num= daysInDate(month1, day1, year1);
+        long date2Num= daysInDate(month2, day2, year2);
 
 	if (date1Num > date2Num)
 		return 1;
@@ -255,26 +254,26 @@ m   * @return         boolean which is true if the parameter is a leap year
      }
 
 //method for determining the number of days in a date
-   public static long daysInDate(long month1, long day1, long year1)
-   {
+   public static long daysInDate(long month1, long day1, long year1){
 
 	long dateNum = 0;
 
 	for (long i=0; i < year1; i++)
-      {
-		if (isLeapYear(i)==true)
-	   		dateNum = dateNum + 366;
-	   	else
-	   	  	dateNum = dateNum + 365;
-      }
+        {
+	   if (isLeapYear(i)==true)
+		dateNum = dateNum + 366;
+	   else
+	   	dateNum = dateNum + 365;
+        }
 
-     for (long i=1; i < month1; i++)
-     {
-	 	    dateNum = dateNum + daysInMonth(i, year1);
-	 }
+        for (long i=1; i < month1; i++)
+        {
+	    dateNum = dateNum + daysInMonth(i, year1);
+	}
 
-   	 dateNum = dateNum + day1;
-   	 return dateNum;
+   	dateNum = dateNum + day1;
+   	 
+	return dateNum;
    }
 
   /**
