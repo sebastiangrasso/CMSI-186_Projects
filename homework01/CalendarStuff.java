@@ -11,7 +11,7 @@
  *                   own at "compile time".  It also provides examples of proper documentation, and uses
  *                   the source file header template as specified in the "Greeter.java" template program
  *                   file for use in CMSI 186, Spring 2017.
- *  Notes         :  None
+ *  Notes         :  Finished, additional method daysInDate() 
  *  Warnings      :  None
  *  Exceptions    :  None
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
