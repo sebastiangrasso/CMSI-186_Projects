@@ -71,7 +71,7 @@ public class Clock {
 
 	  double input = Double.parseDouble(argValue);
 	  if ((1.00 <= Math.abs(360.00 - input)))
-	  	if(input > 0.00)
+	  	if(input < 0.00)
 	  		throw new IllegalArgumentException("Illegal Value");
       return input;
    }
