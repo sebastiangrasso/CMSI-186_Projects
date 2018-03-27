@@ -1,7 +1,18 @@
 import java.io.PrintStream;
 
 public class SoccerSim {
-  public SoccerSim() {}
+
+  private static double [] poleLocation = new double [2];
+  private static double [] feildDimensions = new double [2];
+  private static double poleRadius = .25;
+
+  public SoccerSim() {
+	poleLocation[0] = 0.00;
+	poleLocation[1] = 0.00;
+	feildDimensions[0] = 1000;
+	feildDimensions[1] = 1000;
+
+  }
 
   public static void main(String[] paramArrayOfString) {
 	SoccerBall[] arrayOfBall = new SoccerBall[paramArrayOfString.length / 4];
@@ -34,6 +45,11 @@ public class SoccerSim {
           return true;
         }
       }
+
+    double d = Math.sqrt(Math.pow(paramArrayOfBall[i].getX() - poleLocation[0], 2.00) + Math.pow(paramArrayOfBall[i].getY() - poleLocation[1], 2.00));
+    if (d * 12.00 <= 8.0) {
+		return true;
+	}
     }
     return false;
   }
@@ -52,6 +68,11 @@ public class SoccerSim {
           str = str + "ball " + i + " & " + j + "; ";
         }
       }
+    double d = Math.sqrt(Math.pow(paramArrayOfBall[i].getX() - poleLocation[0], 2.00) + Math.pow(paramArrayOfBall[i].getY() - poleLocation[1], 2.00));
+    if (d * 12.00 <= 8.0) {
+	   str = str + " ball " + i + " & pole; ";
+	}
+
     }
     return str;
   }
