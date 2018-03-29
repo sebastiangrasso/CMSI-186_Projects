@@ -4,7 +4,7 @@ public class SoccerSim {
 
   private static double [] poleLocation = new double [2];
   private static double [] feildDimensions = new double [2];
-  private static double poleRadius = .25;
+  private static double poleRadius = .370833;
 
   public SoccerSim() {
 	poleLocation[0] = 0.00;
