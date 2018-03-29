@@ -24,32 +24,30 @@ public class SoccerBall{
   	  if (onFeildAndMoving)
   	  {
   	    while (timeSlice >= 1.00) {
-  	      updatePosition();
-  	      updateSpeed();
+  	      updatePosition(timeSlice);
+  	      updateSpeed(timeSlice);
   	      timeSlice -= 1.00;
   	    }
   	    if (timeSlice > 0.0D) {
-  	      position[0] += speed[0] * timeSlice;
-  	      position[1] += speed[1] * timeSlice;
-  	      speed[0] -= 0.010 * speed[0] * timeSlice;
-  	      speed[1] -= 0.010 * speed[1] * timeSlice;
+		  updatePosition(timeSlice);
+		  updateSpeed(timeSlice);
   	    }
 	    onFeildAndMoving = checkOnFeildAndMoving();
 	    }
   	}
 
-	public double [] updatePosition(){
+	public double [] updatePosition(double timeSlice){
 		position[0] += speed[0];
 		position[1] += speed[1];
 
 		return position;
 	}
 
-	public double [] updateSpeed(){
-		speed[0] = speed[0] - (speed[0]*.01);
-		speed[1] = speed[1] - (speed[1]*.01);
+	public double [] updateSpeed(double timeSlice){
+		speed[0] = speed[0] * 0.99;
+  	    speed[1] = speed[1] * 0.99;
 
-		return position;
+		return speed;
 	}
 
 	public double getX(){
@@ -72,9 +70,9 @@ public class SoccerBall{
 
 		onFeildAndMoving = false;
 
-		if (-400 <= position[0] && position[0] <= 400)
-			if (-400 <= position[1] && position[1] <= 400)
-				if (speed[0] > 0.08333 && speed[1] > 0.08333)
+		if (-500 <= position[0] && position[0] <= 500)
+			if (-500 <= position[1] && position[1] <= 500)
+				if (Math.abs(speed[0]) > 0.08333 && Math.abs(speed[1]) > 0.08333)
 					onFeildAndMoving = true;
 		return onFeildAndMoving;
 	}
