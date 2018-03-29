@@ -17,7 +17,7 @@ public class SoccerSim {
   public static void main(String[] paramArrayOfString) {
 	SoccerBall[] arrayOfBall = new SoccerBall[paramArrayOfString.length / 4];
     double d = processArgs(paramArrayOfString, arrayOfBall);
-    Timer localTimer = new Timer(0, 0, 0.0D, d);
+    Timer localTimer = new Timer(0, 0, 0.00, d);
 
     printReport("INITIAL REPORT at " + localTimer.toString(), arrayOfBall);
 
@@ -112,10 +112,11 @@ public class SoccerSim {
 
 
     if (paramArrayOfString.length % 4 == 1)
-      try { d1 = Double.parseDouble(paramArrayOfString[(paramArrayOfString.length - 1)]);
-      } catch (Exception localException2) { throw new IllegalArgumentException();
+      { d1 = Double.parseDouble(paramArrayOfString[(paramArrayOfString.length - 1)]);
+//      } catch (Exception localException2) { throw new IllegalArgumentException();
       }
-    if (d1 <= 0.0D) { throw new IllegalArgumentException();
+    if (d1 <= 0.0D)
+    	{throw new IllegalArgumentException();
     }
     return d1;
   }
