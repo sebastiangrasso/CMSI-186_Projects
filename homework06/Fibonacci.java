@@ -18,9 +18,9 @@ public class Fibonacci {
     		System.out.println("Please enter a number");
     	}
 
-    	BigInt a = null;
-    	BigInt b = null;
-    	BigInt c = null;
+    	BrobInt a = null;
+    	BrobInt b = null;
+    	BrobInt c = null;
     	int temp = Integer.parseInt(args[0]);
 
     	if (temp > 5000) {
@@ -35,12 +35,12 @@ public class Fibonacci {
 			if (temp <= 2) {
 				System.out.println(1);
 			} else {
-				a = new BigInt("1");
-				b = new BigInt("2");
+				a = new BrobInt("1");
+				b = new BrobInt("2");
 				for (int i = 3; i < temp; i++) {
-					c = new BigInt(a.add(b));
-					a = new BigInt(b.toString());
-					b = new BigInt(c.toString());
+					c = new BrobInt(a.add(b));
+					a = new BrobInt(b.toString());
+					b = new BrobInt(c.toString());
 				}
 
 				System.out.println(b.toString());
