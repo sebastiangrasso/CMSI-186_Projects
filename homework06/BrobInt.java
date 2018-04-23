@@ -36,7 +36,7 @@ public class BrobInt {
 
   /**
    *  Constructor
-   *  @param String representation of BigInt
+   *  @param String representation of BrobInt
    */
 
    public BrobInt( String valueArg ) {
@@ -130,8 +130,8 @@ public class BrobInt {
    *  Reverse value of BrobInt
    *  @return backwards representation of brobInt
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public static BrobInt reverser( BrobInt bigInteger ) {
-       return bigInteger.reverser();
+   public static BrobInt reverser( BrobInt brobInteger ) {
+       return brobInteger.reverser();
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -171,43 +171,43 @@ public class BrobInt {
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  adds two BrobInts
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt addByte( BrobInt bigInteger ) {
+   public BrobInt addByte( BrobInt brobInteger ) {
        String strForBrob = new String("");
        boolean finalPositive = true;
 
-       if(this.compareTo(bigInteger) >= 0){ //this>arg
-           if(isPositive && bigInteger.getPositive()){
-               strForBrob = addHelper(arrayOfBytes,bigInteger.getByteArr());
+       if(this.compareTo(brobInteger) >= 0){ //this>arg
+           if(isPositive && brobInteger.getPositive()){
+               strForBrob = addHelper(arrayOfBytes,brobInteger.getByteArr());
                finalPositive = true;
            }
-           else if(isPositive && !(bigInteger.getPositive())){
-               strForBrob = subHelper(arrayOfBytes,bigInteger.getByteArr());
+           else if(isPositive && !(brobInteger.getPositive())){
+               strForBrob = subHelper(arrayOfBytes,brobInteger.getByteArr());
                finalPositive = true;
            }
-           else if(!(isPositive) && bigInteger.getPositive()){
-               strForBrob = subHelper(arrayOfBytes,bigInteger.getByteArr());
+           else if(!(isPositive) && brobInteger.getPositive()){
+               strForBrob = subHelper(arrayOfBytes,brobInteger.getByteArr());
                finalPositive = false;
            }
            else{
-               strForBrob = addHelper(arrayOfBytes,bigInteger.getByteArr());
+               strForBrob = addHelper(arrayOfBytes,brobInteger.getByteArr());
                finalPositive = false;
            }
        }
-       else if (this.compareTo(bigInteger) < 0){ //arg>this
-           if(isPositive && bigInteger.getPositive()){
-               strForBrob = addHelper(arrayOfBytes,bigInteger.getByteArr());
+       else if (this.compareTo(brobInteger) < 0){ //arg>this
+           if(isPositive && brobInteger.getPositive()){
+               strForBrob = addHelper(arrayOfBytes,brobInteger.getByteArr());
                finalPositive = true;
            }
-           else if(isPositive && !(bigInteger.getPositive())){
-               strForBrob = subHelper(bigInteger.getByteArr(),arrayOfBytes);
+           else if(isPositive && !(brobInteger.getPositive())){
+               strForBrob = subHelper(brobInteger.getByteArr(),arrayOfBytes);
                finalPositive = false;
            }
-           else if(!(isPositive) && bigInteger.getPositive()){
-               strForBrob = subHelper(bigInteger.getByteArr(),arrayOfBytes);
+           else if(!(isPositive) && brobInteger.getPositive()){
+               strForBrob = subHelper(brobInteger.getByteArr(),arrayOfBytes);
                finalPositive = true;
            }
            else{
-               strForBrob = addHelper(arrayOfBytes,bigInteger.getByteArr());
+               strForBrob = addHelper(arrayOfBytes,brobInteger.getByteArr());
                finalPositive = false;
            }
        }
@@ -258,50 +258,57 @@ public class BrobInt {
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  adds two BrobInts
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt addInt( BrobInt bigInteger ) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+   public BrobInt add( BrobInt brobInteger ) {
+      return this.addByte(brobInteger);
+   }
+
+  /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   *  adds two BrobInts
+   *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+   public BrobInt addInt( BrobInt brobInteger ) {
+      return this.addByte(brobInteger);
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  subtracts two BrobInts
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt subtractByte( BrobInt bigInteger ) {
+   public BrobInt subtractByte( BrobInt brobInteger ) {
        String strForBrob = new String("");
        boolean finalPositive = true;
 
-       if(this.compareTo(bigInteger) >= 0){ //this>arg
-           if(isPositive && bigInteger.getPositive()){
-               strForBrob = subHelper(arrayOfBytes,bigInteger.getByteArr());
+       if(this.compareTo(brobInteger) >= 0){ //this>arg
+           if(isPositive && brobInteger.getPositive()){
+               strForBrob = subHelper(arrayOfBytes,brobInteger.getByteArr());
                finalPositive = true;
            }
-           else if(isPositive && !(bigInteger.getPositive())){
-               strForBrob = addHelper(arrayOfBytes,bigInteger.getByteArr());
+           else if(isPositive && !(brobInteger.getPositive())){
+               strForBrob = addHelper(arrayOfBytes,brobInteger.getByteArr());
                finalPositive = true;
            }
-           else if(!(isPositive) && bigInteger.getPositive()){
-               strForBrob = addHelper(arrayOfBytes,bigInteger.getByteArr());
+           else if(!(isPositive) && brobInteger.getPositive()){
+               strForBrob = addHelper(arrayOfBytes,brobInteger.getByteArr());
                finalPositive = false;
            }
            else{
-               strForBrob = subHelper(arrayOfBytes,bigInteger.getByteArr());
+               strForBrob = subHelper(arrayOfBytes,brobInteger.getByteArr());
                finalPositive = false;
            }
        }
-       else if (this.compareTo(bigInteger) < 0){ //arg>this
-           if(isPositive && bigInteger.getPositive()){
-               strForBrob = subHelper(bigInteger.getByteArr(),arrayOfBytes);
+       else if (this.compareTo(brobInteger) < 0){ //arg>this
+           if(isPositive && brobInteger.getPositive()){
+               strForBrob = subHelper(brobInteger.getByteArr(),arrayOfBytes);
                finalPositive = false;
            }
-           else if(isPositive && !(bigInteger.getPositive())){
-               strForBrob = addHelper(bigInteger.getByteArr(),arrayOfBytes);
+           else if(isPositive && !(brobInteger.getPositive())){
+               strForBrob = addHelper(brobInteger.getByteArr(),arrayOfBytes);
                finalPositive = true;
            }
-           else if(!(isPositive) && bigInteger.getPositive()){
-               strForBrob = addHelper(bigInteger.getByteArr(),arrayOfBytes);
+           else if(!(isPositive) && brobInteger.getPositive()){
+               strForBrob = addHelper(brobInteger.getByteArr(),arrayOfBytes);
                finalPositive = false;
            }
            else{
-               strForBrob = subHelper(bigInteger.getByteArr(),arrayOfBytes);
+               strForBrob = subHelper(brobInteger.getByteArr(),arrayOfBytes);
                finalPositive = true;
            }
        }
@@ -321,9 +328,17 @@ public class BrobInt {
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  subtracts two BrobInts
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt subtractInt( BrobInt bigInteger ) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+   public BrobInt subtract( BrobInt brobInteger ) {
+      return this.subtractByte(brobInteger);
    }
+
+  /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   *  subtracts two BrobInts
+   *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+   public BrobInt subtractInt( BrobInt brobInteger ) {
+      return this.subtractByte(brobInteger);
+   }
+
 
    public String subHelper(byte[] bArrOne, byte[] bArrTwo){
        boolean carry = false;
@@ -357,32 +372,32 @@ public class BrobInt {
    *  multiplies two brobInts
    *  NOT WORKING
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt multiply( BrobInt bigInteger ) {
+   public BrobInt multiply( BrobInt brobInteger ) {
        throw new UnsupportedOperationException();
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  divides two brobInts
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt divide( BrobInt bigInteger ) throws ArithmeticException {//this/arg
+   public BrobInt divide( BrobInt brobInteger ) throws ArithmeticException {//this/arg
       BrobInt brobToReturn = new BrobInt("0");
       String temp;
       BrobInt holder = new BrobInt("0");
       BrobInt currOut = new BrobInt("0");
 
-      if(bigInteger.compareTo(TWO) == 0){
+      if(brobInteger.compareTo(TWO) == 0){
           throw new ArithmeticException("Cannot divide by zero");
       }
-      else if(this.compareTo(bigInteger) < 0 ){
+      else if(this.compareTo(brobInteger) < 0 ){
           return ZERO;
       }
 
-      for(int i =0; i < bigInteger.toString().substring(1).length(); i++){
+      for(int i =0; i < brobInteger.toString().substring(1).length(); i++){
           holder = this.multiply(currOut);
-          temp = bigInteger.toString().substring(2*i+1,2*(i+1)+1);
+          temp = brobInteger.toString().substring(2*i+1,2*(i+1)+1);
           temp = holder.toString().substring(1).concat(temp);
           holder = new BrobInt(temp);
-          currOut = holder.divide(bigInteger);
+          currOut = holder.divide(brobInteger);
           if(currOut.compareTo(TEN) < 0){
               brobToReturn = new BrobInt(brobToReturn.toString().concat("0"));
               brobToReturn = new BrobInt(brobToReturn.toString().concat(currOut.toString().substring(0)));
@@ -405,41 +420,42 @@ public class BrobInt {
    *  remainder of two brobInt division
    *  NOT WORKING
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt remainder( BrobInt bigInteger ) {
+   public BrobInt remainder( BrobInt brobInteger ) {
        throw new UnsupportedOperationException();
-       //return this.subtractByte(bigInteger.multiply(this.divide(bigInteger)));
+       //return this.subtractByte(brobInteger.multiply(this.divide(brobInteger)));
    }
 
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  compares two brobInts for equality
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public boolean equals( BrobInt bigInteger ) {
-      return (this.toString().equals( bigInteger.toString() ));
+   public boolean equals( BrobInt brobInteger ) {
+      return (this.toString().equals( brobInteger.toString() ));
    }
 
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  compares two BrobInts
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public int compareTo( BrobInt bigInteger ) {
-      if(this.toString().length() > bigInteger.toString().length()){
-          return 1;
+   public int compareTo( BrobInt brobInteger ) {
+
+      if(this.toString().charAt(0)== '-' && brobInteger.toString().charAt(0) == '-'){
+          return (-1*(this.toString().compareTo( brobInteger.toString() )));
       }
-      else if(this.toString().length() < bigInteger.toString().length()){
+      else if(this.toString().charAt(0)== '-' && brobInteger.toString().charAt(0) == '+'){
           return -1;
       }
-      else if(this.toString().charAt(0)== '-' && bigInteger.toString().charAt(0) == '-'){
-          return (this.toString().compareTo( bigInteger.toString() ));
-      }
-      else if(this.toString().charAt(0)== '-' && bigInteger.toString().charAt(0) == '+'){
-          return -1;
-      }
-      else if(this.toString().charAt(0)== '+' && bigInteger.toString().charAt(0) == '-'){
+      else if(this.toString().charAt(0)== '+' && brobInteger.toString().charAt(0) == '-'){
           return 1;
+      }
+      else if(this.toString().length() > brobInteger.toString().length()){
+          return 1;
+      }
+      else if(this.toString().length() < brobInteger.toString().length()){
+          return -1;
       }
       else{
-          return (this.toString().compareTo( bigInteger.toString() ));
+          return (this.toString().compareTo( brobInteger.toString() ));
       }
 
    }
@@ -449,14 +465,14 @@ public class BrobInt {
    *  returns BrobInt version of long
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public static BrobInt valueOf( long value ) throws NumberFormatException {
-      BrobInt BigInteger = null;
+      BrobInt BrobInteger = null;
       try {
-         BigInteger = new BrobInt( new Long( value ).toString() );
+         BrobInteger = new BrobInt( new Long( value ).toString() );
       }
       catch( NumberFormatException nfe ) {
          System.out.println( "\n  Sorry, the value must be numeric of type long." );
       }
-      return BigInteger;
+      return BrobInteger;
    }
 
    /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -537,47 +553,5 @@ public class BrobInt {
       *  main method
       *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
       public static void main( String[] args ) {
-   	  BigInt neg = new BigInt("-3412343214132412342343241341324123421432341243214131");
-         BigInt pos = new BigInt("3412343214132412342343241341324123421432341243214131");
-         BigInt zeroes = new BigInt("0123");
-         BigInt zeroes1 = new BigInt("000123");
-         BigInt zeroes2 = new BigInt("0000123");
-         BigInt zeroes3 = new BigInt("-0010123");
-         BigInt zeroes4 = new BigInt("0010123");
-         BigInt zeroes5 = new BigInt("999");
-         BigInt zeroes6 = new BigInt("99");
-         BigInt zeroes7 = new BigInt("911");
-         BigInt zeroes8 = new BigInt("99");
-         BigInt zeroes9 = new BigInt("1");
-         BigInt zeroes10 = new BigInt("2");
-         BigInt zeroes11 = new BigInt("-25");
-         BigInt zeroes12 = new BigInt("50");
-         System.out.println("\n Creating a negative BigInt: " + neg.toString());
-         System.out.println("\n Creating a positive BigInt: " + pos.toString());
-         System.out.println("\n Creating a positive BigInt: " + zeroes.toString());
-         System.out.println("\n Creating a positive BigInt: " + zeroes1.toString());
-         System.out.println("\n Creating a positive BigInt: " + zeroes2.toString());
-         System.out.println("\n Creating a negative BigInt: " + zeroes3.toString());
-         System.out.println("\n Creating a positive BigInt: " + zeroes4.toString());
-         System.out.println("\n Is -3412343214132412342343241341324123421432341243214131 positive? " + neg.isPositive());
-         System.out.println("\n Is 3412343214132412342343241341324123421432341243214131 positive? " + pos.isPositive());
-         System.out.println("\n Comparing two BigInt. Expecting ... 0 " +  "Got: " + zeroes.compareTo(zeroes1));
-         System.out.println("\n Comparing two BigInt. Expecting ... true " +  "Got: " + zeroes.equals(zeroes1));
-         System.out.println("\n Comparing two BigInt. Expecting ... 1 " +  "Got: " + zeroes.compareTo(neg));
-         System.out.println("\n Comparing two BigInt. Expecting ... -1 " +  "Got: " + zeroes.compareTo(pos));
-         System.out.println("\n Adding two BigInt. Expecting ... 246 " +  "Got: " + zeroes.add(zeroes1));
-         System.out.println("\n Adding two BigInt. Expecting ... 1098 " +  "Got: " + zeroes5.add(zeroes6));
-         System.out.println("\n Adding two BigInt. Expecting ... double pos " +  "Got: " + pos.add(pos));
-         System.out.println("\n Adding two BigInt. Expecting ... -20246 " +  "Got: " + zeroes3.add(zeroes3));
-         System.out.println("\n Subtracting two BigInt. Expecting ... 812 " +  "Got: " + zeroes7.subtract(zeroes8));
-         System.out.println("\n Subtracting two BigInt. Expecting ... -812 " +  "Got: " + zeroes8.subtract(zeroes7));
-         System.out.println("\n Subtracting two BigInt. Expecting ... -1 " +  "Got: " + zeroes9.subtract(zeroes10));
-         System.out.println("\n Subtracting two BigInt. Expecting ... 1 " +  "Got: " + zeroes10.subtract(zeroes9));
-         System.out.println("\n Subtracting two BigInt. Expecting ... 75 " +  "Got: " + zeroes12.subtract(zeroes11));
-         System.out.println("\n Subtracting two BigInt. Expecting ... -75 " +  "Got: " + zeroes11.subtract(zeroes12));
-         System.out.println("\n Subtracting two BigInt. Expecting ... 0 " +  "Got: " + zeroes11.subtract(zeroes11));
-         BigInt one = new BigInt("8");
-         BigInt two = new BigInt("5");
-         System.out.println("\n Adding two BigInt. Expecting ... 13 " +  "Got: " + one.add(two));
-      }
+  	  } 
 }
